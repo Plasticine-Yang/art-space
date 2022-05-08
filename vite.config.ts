@@ -1,4 +1,4 @@
-import { createVitePlugins } from '@build/vite/plugin';
+import { createVitePlugins } from './build/vite/plugin';
 import path from 'path';
 import { defineConfig } from 'vite';
 
