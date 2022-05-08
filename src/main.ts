@@ -1,5 +1,20 @@
-import { useAxios } from '@vueuse/integrations';
 import { createApp } from 'vue';
 import App from './App.vue';
+import { registerGlobCpns } from './components/registerGlobCpns';
+import { setupRouter } from './router';
 
-createApp(App).mount('#app');
+import './style/index.scss';
+
+async function bootstrap() {
+  const app = createApp(App);
+
+  // 注册全局组件
+  registerGlobCpns(app);
+
+  // 集成 vue-router
+  setupRouter(app);
+
+  app.mount('#app');
+}
+
+bootstrap();
