@@ -11,8 +11,24 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@build/*": ["build/*"],
+      "#/*": ["types/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "build/**/*.ts",
+    "types/**/*.d.ts",
+    "vite.config.ts"
+  ]
 }
