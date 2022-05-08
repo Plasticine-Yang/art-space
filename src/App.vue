@@ -1,5 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { useThemeVars } from './hooks/vant/useThemeVars';
 
-<template></template>
+  const themeVars = useThemeVars();
+</script>
 
-<style></style>
+<template>
+  <van-config-provider
+    :theme-vars="themeVars"
+    class="h-full w-full bg-[#191e24]"
+  >
+    <router-view />
+  </van-config-provider>
+</template>

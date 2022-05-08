@@ -8,5 +8,6 @@ export const basicLayoutRoute: RouteRecordRaw = {
   path: '/',
   name: 'BasicLayout',
   redirect: '/home',
+  component: () => import('@/layouts/basic-layouts/index.vue'),
   children: [homeRoute],
 };
