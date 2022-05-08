@@ -9,7 +9,7 @@
 <template>
   <div class="h-full w-full">
     <!-- 主体内容区域 -->
-    <main class="h-full w-full">
+    <main>
       <router-view />
     </main>
     <!-- 底部导航栏 Tabbar -->
@@ -20,3 +20,10 @@
     </Tabbar>
   </div>
 </template>
+
+<style scoped lang="scss">
+  main {
+    height: calc(100vh - 50px);
+    @apply overflow-scroll;
+  }
+</style>
