@@ -1,4 +1,8 @@
 import { createApp } from 'vue';
+
+// 修复控制台 passive events warning
+import 'default-passive-events';
+
 import App from './App.vue';
 import { registerGlobCpns } from './components/registerGlobCpns';
 import { setupRouter } from './router';
