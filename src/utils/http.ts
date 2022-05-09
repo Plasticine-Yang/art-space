@@ -47,7 +47,7 @@ axiosInstance.interceptors.response.use(
  */
 export async function request<T = any>(
   config: AxiosRequestConfig,
-  options?: AxiosOptions,
+  options?: Partial<AxiosOptions>,
 ) {
   if (options?.withToken) {
     // 携带 token 发送请求
@@ -82,7 +82,7 @@ export async function request<T = any>(
 export function get<T = any>(
   url: string,
   params?: any,
-  options?: AxiosOptions,
+  options?: Partial<AxiosOptions>,
 ) {
   return request<T>({ url, method: 'GET', params }, options);
 }
@@ -93,6 +93,10 @@ export function get<T = any>(
  * @param data 携带的 data
  * @param options 额外扩展的配置对象 -- 不传则默认全都不生效
  */
-export function post<T = any>(url: string, data: any, options?: AxiosOptions) {
+export function post<T = any>(
+  url: string,
+  data: any,
+  options?: Partial<AxiosOptions>,
+) {
   return request<T>({ url, method: 'POST', data }, options);
 }

@@ -10,6 +10,10 @@ import {
  */
 export const useThemeVars = () => {
   return {
+    // primary 按钮文本颜色
+    buttonPrimaryColor: tabbarColor,
+    // 底部导航栏高度
+    tabbarHeight: '80px',
     // 底部导航栏背景颜色
     tabbarBackgroundColor: tabbarColor,
     // 导航栏项激活时的背景颜色
@@ -18,6 +22,8 @@ export const useThemeVars = () => {
     tabbarItemActiveColor: primaryColor,
     // 首页下拉刷新时的文本颜色
     pullRefreshHeadTextColor: primaryColor,
+    // Tab 标签文本字体大小
+    tabFontSize: '1rem',
     // Tab 标签背景颜色
     tabsNavBackgroundColor: mainBgColor,
     // Tab 标签中的文本颜色
@@ -26,5 +32,25 @@ export const useThemeVars = () => {
     tabActiveTextColor: primaryColor,
     // Tab 标签中底部长条的颜色
     tabsBottomBarColor: primaryColor,
+    // NavBar 的背景颜色
+    navBarBackgroundColor: tabbarColor,
+    // NavBar 文字颜色
+    navBarTextColor: primaryColor,
+    // NavBar 标题颜色
+    navBarTitleTextColor: primaryColor,
+    // NavBar 图标颜色
+    navBarIconColor: primaryColor,
+    // SubmitBar 高度
+    submitBarHeight: '80px',
+    // SubmitBar 背景颜色
+    submitBarBackgroundColor: tabbarColor,
+    // SubmitBar 价格颜色
+    submitBarPriceColor: primaryColor,
+    // SubmitBar 标签颜色
+    submitBarTextColor: primaryColor,
+    // SubmitBar 按钮宽度
+    submitBarButtonWidth: '220px',
+    // SubmitBar 按钮文本颜色
+    submitBarButtonColor: mainBgColor,
   };
 };

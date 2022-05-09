@@ -6,6 +6,7 @@ module.exports = {
         primary: '#B8F2E6',
         tabbar: '#212530',
         'main-bg': '#191e24',
+        'main-text-color': '#cfdbd5',
       },
     },
   },

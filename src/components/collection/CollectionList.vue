@@ -74,12 +74,13 @@
     @refresh="onRefresh"
   >
     <List v-model:loading="listLoading" :finished="listFinished" @load="onLoad">
-      <CollectionCard
+      <router-link
         v-for="item in collectionList"
         :key="item.id"
-        class="mb-8"
-        :collection="item"
-      />
+        :to="`/collection-detail/${item.id}`"
+      >
+        <CollectionCard class="mb-8" :collection="item" rounded />
+      </router-link>
     </List>
   </PullRefresh>
 </template>

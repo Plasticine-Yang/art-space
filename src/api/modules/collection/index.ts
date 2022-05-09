@@ -1,9 +1,10 @@
 /**
  * @description 封装藏品相关接口
  */
-import { post } from '@/utils/http';
+import { post, get } from '@/utils/http';
 import { CollectionAPI } from '@/enums/api';
 import type { ICollectionListParams, ICollectionListResponse } from './types';
+import { ICollection } from '@/model/collection';
 
 /**
  * @description 获取藏品列表
@@ -20,4 +21,15 @@ export async function getCollectionList(params: ICollectionListParams) {
     hasMore: res.current !== res.pages,
     collectionList: res.records,
   };
+}
+
+/**
+ * @description 根据藏品 id 获取藏品信息
+ * @param id 藏品 id
+ */
+export function getCollectionById(id: number) {
+  // 该接口需要携带 token
+  return get<ICollection>(CollectionAPI.COLLECTION_BY_ID + id, null, {
+    withToken: true,
+  });
 }

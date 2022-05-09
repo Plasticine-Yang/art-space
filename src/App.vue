@@ -5,10 +5,7 @@
 </script>
 
 <template>
-  <van-config-provider
-    :theme-vars="themeVars"
-    class="h-full w-full bg-[#191e24]"
-  >
+  <van-config-provider :theme-vars="themeVars" class="h-full w-full bg-main-bg">
     <router-view />
   </van-config-provider>
 </template>

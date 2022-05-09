@@ -18,7 +18,13 @@
       lazy-render
     >
       <SwipeItem v-for="image in images" :key="image">
-        <img :src="image" />
+        <van-image
+          :src="image"
+          height="100%"
+          width="100%"
+          position="center"
+          fit="cover"
+        />
       </SwipeItem>
     </Swipe>
   </div>
@@ -27,11 +33,5 @@
 <style scoped lang="scss">
   .my-swipe {
     @apply h-full;
-    .van-swipe-item {
-      img {
-        @apply w-full;
-        @apply object-cover;
-      }
-    }
   }
 </style>

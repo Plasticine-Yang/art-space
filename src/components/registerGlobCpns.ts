@@ -1,7 +1,7 @@
 import { App } from 'vue';
 
-import { Icon, ConfigProvider } from 'vant';
+import { Icon, ConfigProvider, Lazyload, Image } from 'vant';
 
 export function registerGlobCpns(app: App) {
-  app.use(Icon).use(ConfigProvider);
+  app.use(Icon).use(ConfigProvider).use(Lazyload).use(Image);
 }

@@ -3,4 +3,6 @@
  */
 export enum CollectionAPI {
   COLLECTION_LIST = '/shop/info/list/user',
+  // 需要拼接 id -- /shop/info/get/1
+  COLLECTION_BY_ID = '/shop/info/get/',
 }

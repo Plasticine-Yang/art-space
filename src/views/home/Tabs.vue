@@ -13,7 +13,7 @@
   <Tabs v-model:active="activeTab" shrink swipeable sticky>
     <Tab title="数字藏品">
       <!-- 藏品列表 -->
-      <CollectionList class="mt-8" />
+      <CollectionList class="mt-2" />
     </Tab>
     <Tab title="藏品专题"></Tab>
   </Tabs>

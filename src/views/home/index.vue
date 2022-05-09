@@ -14,18 +14,18 @@
 </script>
 
 <template>
-  <main class="box-border pt-6 px-4">
+  <main class="box-border py-6 px-4">
     <!-- 网站标题 logo -->
     <Row align="center" gutter="4">
       <Col>
         <van-icon name="smile" size="2rem" color="#B8F2E6" />
       </Col>
       <Col>
-        <h1 class="m-0 tracking-widest font-thin"> {{ title }} </h1>
+        <h1 class="m-0 tracking-widest font-bold"> {{ title }} </h1>
       </Col>
     </Row>
 
-    <div class="flex flex-col gap-8 mt-8">
+    <div class="flex flex-col gap-2 mt-8">
       <!-- 轮播图 -->
       <Swipe />
       <!-- 标签页 -->
