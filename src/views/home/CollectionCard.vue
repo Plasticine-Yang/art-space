@@ -15,7 +15,7 @@
       />
     </Row>
     <!-- 藏品信息 -->
-    <div class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2 w-full">
       <!-- 藏品名字 -->
       {{ collection.shopName }}
       <!-- 藏品限量 -->
@@ -28,7 +28,7 @@
         </Col>
       </Row>
       <!-- Smile 艺术空间 和 价格 -->
-      <Row>
+      <Row justify="space-between">
         <Col>Smile艺术空间</Col>
         <Col>￥{{ collection.shopPrice }} </Col>
       </Row>

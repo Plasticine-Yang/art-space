@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { getCollectionList } from '@/api';
   import { ICollection } from '@/model/collection';
 
   import { List, PullRefresh } from 'vant';
@@ -15,75 +16,53 @@
   const pullRefreshLoading = ref(false);
   // 藏品列表
   const collectionList = ref<ICollection[]>([]);
-
-  // 临时测试数据
-  const tempList: ICollection[] = [
-    {
-      id: 1,
-      shopName: '测试商品1',
-      shopPrice: 66.6,
-      shopDec: '商品描述',
-      shopTypeId: 1,
-      shopCoverImage:
-        'https://unsplash.com/photos/Dd9Wkk5vj80/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUxNjM5NjY4&force=true',
-      shopStock: 1,
-      shopLink:
-        'https://unsplash.com/photos/Dd9Wkk5vj80/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjUxNjM5NjY4&force=true',
-      buyLimit: 16,
-      sellTime: '2022年5月4日 14:11',
-      shopType: {
-        id: 1,
-        typeName: '测试类型',
-      },
-      shopTypeTag: [],
-      shopCoverImages: null,
-      shopImages: null,
-    },
-    {
-      id: 2,
-      shopName: '测试商品2',
-      shopPrice: 76.6,
-      shopDec: '商品描述',
-      shopTypeId: 1,
-      shopCoverImage:
-        'https://unsplash.com/photos/y8wjQZ9XP4A/download?ixid=MnwxMjA3fDF8MXxhbGx8NTF8fHx8fHwyfHwxNjUxNjQ0MDQ0&force=true',
-      shopStock: 2,
-      shopLink:
-        'https://unsplash.com/photos/y8wjQZ9XP4A/download?ixid=MnwxMjA3fDF8MXxhbGx8NTF8fHx8fHwyfHwxNjUxNjQ0MDQ0&force=true',
-      buyLimit: 88,
-      sellTime: '2022年5月3日 18:21',
-      shopType: {
-        id: 1,
-        typeName: '测试类型',
-      },
-      shopTypeTag: [],
-      shopCoverImages: null,
-      shopImages: null,
-    },
-  ];
+  // 当前列表页数
+  const currentPage = ref(1);
+  // 每页数据的个数
+  const pageSize = ref(3);
 
   // methods
 
   // 下拉刷新的异步操作在这里处理
   const onRefresh = () => {
-    setTimeout(() => {
-      // 将藏品列表中的数据重置为一个
-      collectionList.value = [tempList[0]];
+    // 重置当前页为第一页
+    currentPage.value = 1;
+    // 重置列表完成状态为 false
+    listFinished.value = false;
+
+    // 重置 collectionList 为第一页的数据
+    getCollectionList({
+      currentPage: currentPage.value,
+      pageSize: pageSize.value,
+    }).then(({ collectionList: collectionListRes }) => {
+      collectionList.value = [];
+      collectionList.value = collectionListRes;
+
+      // 刷新状态完成
       pullRefreshLoading.value = false;
-    }, 1000);
+    });
   };
 
   // 加载下一页列表数据的操作在这里处理
-  const onLoad = () => {
-    setTimeout(() => {
-      collectionList.value.push(tempList[1]);
+  const onLoad = async () => {
+    // 加载藏品列表
+    const { hasMore, collectionList: collectionListRes } =
+      await getCollectionList({
+        currentPage: currentPage.value,
+        pageSize: pageSize.value,
+      });
 
-      listLoading.value = false;
+    // 将加载到的新数据合并到 collectionList 响应式数组中
+    collectionList.value.push(...collectionListRes);
 
-      if (collectionList.value.length >= 30) {
-        listFinished.value = true;
-      }
-    }, 1000);
+    // 加载完毕后当前页数加 1 并将加载状态置为 false
+    currentPage.value++;
+    listLoading.value = false;
+
+    if (!hasMore) {
+      // 没有更多数据了 让加载列表不再触发上滑加载下一页数据的逻辑
+      listFinished.value = true;
+    }
   };
 </script>
 
