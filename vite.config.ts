@@ -21,13 +21,14 @@ const alias: { [find: string]: string } = {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const { VITE_PORT } = useEnv(loadEnv(mode, root));
+  const env = useEnv(loadEnv(mode, root));
+  const { VITE_PORT } = env;
 
   return {
     server: {
       port: VITE_PORT,
     },
-    plugins: createVitePlugins(),
+    plugins: createVitePlugins(env),
     resolve: {
       alias,
     },
