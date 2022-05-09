@@ -1,6 +1,10 @@
+// vite.config.ts 中不能使用路径别名去导入别的包 因为此时 vite 还没初始化完毕 路径别名没有生效 还是需要用相对路径
 import { createVitePlugins } from './build/vite/plugin';
+import { useEnv } from './build/utils';
+
+import { defineConfig, loadEnv } from 'vite';
+
 import path from 'path';
-import { defineConfig } from 'vite';
 
 // 工作目录
 const root = process.cwd();
@@ -16,8 +20,13 @@ const alias: { [find: string]: string } = {
 };
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const { VITE_PORT } = useEnv(loadEnv(mode, root));
+
   return {
+    server: {
+      port: VITE_PORT,
+    },
     plugins: createVitePlugins(),
     resolve: {
       alias,
