@@ -15,6 +15,7 @@ specifiers:
   consola: ^2.15.3
   cz-conventional-changelog: ^3.3.0
   cz-customizable: ^6.3.0
+  default-passive-events: ^2.0.0
   eslint: ^8.15.0
   eslint-config-prettier: ^8.5.0
   eslint-define-config: ^1.4.0
@@ -38,6 +39,7 @@ specifiers:
 dependencies:
   '@vueuse/core': 8.4.2_vue@3.2.33
   axios: 0.27.2
+  default-passive-events: 2.0.0
   vant: 3.4.9_vue@3.2.33
   vue: 3.2.33
   vue-router: 4.0.15_vue@3.2.33
@@ -1363,6 +1365,10 @@ packages:
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: true
+
+  /default-passive-events/2.0.0:
+    resolution: {integrity: sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ==}
+    dev: false
 
   /defined/1.0.0:
     resolution: {integrity: sha1-yY2bzvdWdBiOEQlpFRGZ45sfppM=}
