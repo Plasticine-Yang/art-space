@@ -1,5 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import { mainTextColor } from '@/config/vant/themeConfig';
+  import UserInfoOperation from './user-info-operation/index.vue';
+  import MyCollection from './my-collection/index.vue';
+</script>
 
 <template>
-  <div> </div>
+  <!-- 右上角设置图标 -->
+  <div class="fixed top-8 right-6">
+    <van-icon name="setting-o" :color="mainTextColor" size="2rem" />
+  </div>
+  <!-- 用户信息和操作 -->
+  <UserInfoOperation />
+  <!-- 我的藏品 -->
+  <MyCollection />
 </template>

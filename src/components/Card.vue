@@ -17,6 +17,8 @@
   const props = defineProps<{
     // 是否圆角显示
     rounded?: boolean;
+    // 圆角大小
+    borderRadius?: string;
     // 内边距
     padding?: string;
     // 三部分之间的间距
@@ -28,7 +30,11 @@
   }>();
 
   // style
-  const roundedStyle = props.rounded ? '1rem' : '0';
+  const roundedStyle = props.borderRadius
+    ? props.borderRadius
+    : props.rounded
+    ? '1rem'
+    : '0';
   const paddingStyle = props.padding ?? '1rem';
   const gapStyle = props.gap ?? '1rem';
   const bgColorStyle = props.backgroundColor ?? tabbarColor;
