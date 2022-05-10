@@ -23,6 +23,7 @@ specifiers:
   eslint-plugin-vue: ^8.7.1
   husky: ^7.0.4
   lint-staged: ^12.4.1
+  pinia: ^2.0.14
   postcss: ^8.4.13
   prettier: ^2.6.2
   sass: ^1.51.0
@@ -40,6 +41,7 @@ dependencies:
   '@vueuse/core': 8.4.2_vue@3.2.33
   axios: 0.27.2
   default-passive-events: 2.0.0
+  pinia: 2.0.14_ytvqwwdyss532bvoq2clv4ed5m
   vant: 3.4.9_vue@3.2.33
   vue: 3.2.33
   vue-router: 4.0.15_vue@3.2.33
@@ -3013,6 +3015,24 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
     dev: true
+
+  /pinia/2.0.14_ytvqwwdyss532bvoq2clv4ed5m:
+    resolution: {integrity: sha512-0nPuZR4TetT/WcLN+feMSjWJku3SQU7dBbXC6uw+R6FLQJCsg+/0pzXyD82T1FmAYe0lsx+jnEDQ1BLgkRKlxA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      typescript: 4.6.4
+      vue: 3.2.33
+      vue-demi: 0.12.5_vue@3.2.33
+    dev: false
 
   /postcss-js/4.0.0_postcss@8.4.13:
     resolution: {integrity: sha512-77QESFBwgX4irogGVPgQ5s07vLvFqWr228qZY+w6lW599cRlK/HmnlivnnVUxkjHnCu4J16PDMHcH+e+2HbvTQ==}
