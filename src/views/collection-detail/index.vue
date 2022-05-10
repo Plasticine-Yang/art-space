@@ -15,7 +15,7 @@
       <template #tabbar>
         <SubmitBar
           :price="submitBarPrice"
-          :button-color="primaryColor"
+          :button-color="primaryDarkColor"
           button-text="购买"
           button-type="primary"
           text-align="left"
@@ -37,7 +37,7 @@
   import { getCollectionById } from '@/api';
 
   import type { ICollection } from '@/model/collection';
-  import { primaryColor } from '@/config/vant/themeConfig';
+  import { primaryDarkColor } from '@/config/vant/themeConfig';
   import CollectionCard from '@/components/collection/CollectionCard.vue';
   import CollectionDesc from './CollectionDesc.vue';
   import NavTabLayout from '@/layouts/nav-tab-layout/index.vue';

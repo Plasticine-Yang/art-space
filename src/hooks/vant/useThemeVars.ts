@@ -1,6 +1,8 @@
 import {
   mainBgColor,
+  mainTextColor,
   primaryColor,
+  primaryDarkColor,
   tabbarColor,
 } from '@/config/vant/themeConfig';
 
@@ -50,7 +52,19 @@ export const useThemeVars = () => {
     submitBarTextColor: primaryColor,
     // SubmitBar 按钮宽度
     submitBarButtonWidth: '220px',
-    // SubmitBar 按钮文本颜色
-    submitBarButtonColor: mainBgColor,
+    // Cell 背景颜色
+    cellBackgroundColor: tabbarColor,
+    // Cell 字体颜色
+    cellTextColor: mainTextColor,
+    // Cell active 颜色
+    cellActiveColor: mainBgColor,
+    // Field label 文本颜色
+    fieldLabelColor: mainTextColor,
+    // Field input 文本颜色
+    fieldInputTextColor: mainTextColor,
+    // Checkbox checked 颜色
+    checkboxCheckedIconColor: primaryDarkColor,
+    // Radio checked 颜色
+    radioCheckedIconColor: primaryDarkColor,
   };
 };

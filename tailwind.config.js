@@ -7,6 +7,7 @@ module.exports = {
         tabbar: '#212530',
         'main-bg': '#191e24',
         'main-text-color': '#cfdbd5',
+        'primary-dark-color': '#3A506B',
       },
     },
   },
