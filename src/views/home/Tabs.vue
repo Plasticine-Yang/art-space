@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { Tab, Tabs } from 'vant';
   import { ref } from 'vue';
-  import CollectionList from '@/components/collection/CollectionList.vue';
+  import CollectionList from '@/views/home/collection/CollectionList.vue';
 
   const activeTab = ref(0);
 </script>
