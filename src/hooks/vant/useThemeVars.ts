@@ -12,8 +12,10 @@ import {
  */
 export const useThemeVars = () => {
   return {
-    // primary 按钮文本颜色
+    // 按钮 primary 文本颜色
     buttonPrimaryColor: tabbarColor,
+    // 按钮 primary 背景颜色
+    buttonPrimaryBackgroundColor: primaryColor,
     // 底部导航栏高度
     tabbarHeight: '80px',
     // 底部导航栏背景颜色
@@ -58,6 +60,10 @@ export const useThemeVars = () => {
     cellTextColor: mainTextColor,
     // Cell active 颜色
     cellActiveColor: mainBgColor,
+    // CellGroup inset padding
+    cellGroupInsetPadding: '0',
+    // CellGroup 背景颜色
+    cellGroupBackgroundColor: tabbarColor,
     // Field label 文本颜色
     fieldLabelColor: mainTextColor,
     // Field input 文本颜色
