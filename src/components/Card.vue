@@ -37,6 +37,8 @@
 
 <style scoped lang="scss">
   .card {
+    display: flex;
+    flex-direction: column;
     border-radius: v-bind(roundedStyle);
     padding: v-bind(paddingStyle);
     gap: v-bind(gapStyle);
