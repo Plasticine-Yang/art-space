@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { homeRoute } from './modules/home';
+import { myRoute } from './modules/my';
 
 /**
  * @description 基本布局的路由
@@ -9,5 +10,5 @@ export const basicLayoutRoute: RouteRecordRaw = {
   name: 'BasicLayout',
   redirect: '/home',
   component: () => import('@/layouts/basic-layout/index.vue'),
-  children: [homeRoute],
+  children: [homeRoute, myRoute],
 };

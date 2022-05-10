@@ -1,9 +1,28 @@
 <script setup lang="ts">
+  import { PageRoutes } from '@/enums/page';
   import { Tabbar, TabbarItem } from 'vant';
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
+  import { useRoute } from 'vue-router';
 
   // 当前选中的标签页
   const activeBar = ref('home');
+
+  onMounted(() => {
+    const route = useRoute();
+    const path = route.path;
+
+    switch (path) {
+      case PageRoutes.HOME:
+        activeBar.value = 'home';
+        break;
+      case PageRoutes.MARKET:
+        activeBar.value = 'market';
+        break;
+      case PageRoutes.MY:
+        activeBar.value = 'my';
+        break;
+    }
+  });
 </script>
 
 <template>

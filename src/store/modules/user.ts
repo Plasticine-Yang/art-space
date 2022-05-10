@@ -107,8 +107,7 @@ export const useUserStore = defineStore({
       if (!this.getToken) return null;
 
       // 获取用户信息
-      const userInfo = await getUserInfo();
-      this.setUserInfo(userInfo);
+      this.getUserInfoAction();
 
       // 判断是否跳转首页
       if (goHome) {
@@ -123,6 +122,13 @@ export const useUserStore = defineStore({
           message: `欢迎您${'：' + this.userInfo?.username}！`,
         });
       }
+    },
+    /**
+     * @description 获取用户信息
+     */
+    async getUserInfoAction() {
+      const userInfo = await getUserInfo();
+      this.setUserInfo(userInfo);
     },
     /**
      * @description 登出
