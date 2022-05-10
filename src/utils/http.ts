@@ -1,5 +1,5 @@
 import { useEnv } from '@build/utils';
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 import type { AxiosRequestConfig } from 'axios';
 import { AxiosOptions, IResponse } from '#/axios';
 import { useLocalStorage } from '@vueuse/core';
@@ -23,20 +23,18 @@ axiosInstance.interceptors.response.use(
 
     return value;
   },
-  (error) => {
-    if (error?.response) {
-      // 捕获来自 AxiosResponse 的异常
-      // 此时可以将 error.response 断言为 AxiosResponse
-      const response = error.response as AxiosResponse;
-
-      let msg = '未知错误';
-      if (response.data?.msg) {
-        // data 如果是统一响应类型 -- 将 msg 的内容通知出去
-        msg = response.data.msg;
-      }
-
-      Notify({ type: 'danger', message: msg });
+  (error: AxiosError) => {
+    let msg = '未知错误';
+    if (error.response?.data) {
+      const data = error.response.data as IResponse;
+      msg = data.msg;
+    } else {
+      msg = error.message;
     }
+
+    Notify({ type: 'danger', message: msg });
+
+    return error;
   },
 );
 

@@ -10,17 +10,24 @@ import { ICollection } from '@/model/collection';
  * @description 获取藏品列表
  */
 export async function getCollectionList(params: ICollectionListParams) {
-  // 没有传递 options.withNativeResponse -- 可以将类型断言为 ICollectionListResponse
-  const res = (await post<ICollectionListResponse>(
-    CollectionAPI.COLLECTION_LIST,
-    params,
-  )) as ICollectionListResponse;
+  try {
+    // 没有传递 options.withNativeResponse -- 可以将类型断言为 ICollectionListResponse
+    const res = (await post<ICollectionListResponse>(
+      CollectionAPI.COLLECTION_LIST,
+      params,
+    )) as ICollectionListResponse;
 
-  return {
-    // 当前页不等于总页数 -- 说明还有更多数据可以加载
-    hasMore: res.current !== res.pages,
-    collectionList: res.records,
-  };
+    return {
+      // 当前页不等于总页数 -- 说明还有更多数据可以加载
+      hasMore: res.current !== res.pages,
+      collectionList: res.records,
+    };
+  } catch (e) {
+    return {
+      hasMore: false,
+      collectionList: [],
+    };
+  }
 }
 
 /**
