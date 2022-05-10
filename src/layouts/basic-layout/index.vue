@@ -8,6 +8,7 @@
   const activeBar = ref('home');
 
   onMounted(() => {
+    // 将路由和激活标签页绑定
     const route = useRoute();
     const path = route.path;
 
@@ -33,7 +34,7 @@
     </main>
     <!-- 底部导航栏 Tabbar -->
     <Tabbar v-model="activeBar" :border="false">
-      <TabbarItem name="home" icon="debit-pay" to="/home">首页</TabbarItem>
+      <TabbarItem name="home" icon="wap-home-o" to="/home">首页</TabbarItem>
       <TabbarItem name="market" icon="shop-o" to="/market">市场</TabbarItem>
       <TabbarItem name="my" icon="contact" to="/my">我的</TabbarItem>
     </Tabbar>
