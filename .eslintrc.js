@@ -27,6 +27,7 @@ module.exports = defineConfig({
     // 遇到不需要的 lint 检查的时候在这里配置关闭
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     'vue/multi-word-component-names': 'off',
   },
 });
