@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Tab, Tabs } from 'vant';
+  import { Tab, Tabs, Empty } from 'vant';
   import { ref } from 'vue';
   import CollectionList from '@/views/home/collection/CollectionList.vue';
 
@@ -15,6 +15,8 @@
       <!-- 藏品列表 -->
       <CollectionList class="mt-2" />
     </Tab>
-    <Tab title="藏品专题"></Tab>
+    <Tab title="藏品专题">
+      <Empty description="暂无数据" />
+    </Tab>
   </Tabs>
 </template>
