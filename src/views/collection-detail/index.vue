@@ -38,7 +38,7 @@
 
   import type { ICollection } from '@/model/collection';
   import { primaryDarkColor } from '@/config/vant/themeConfig';
-  import CollectionCard from '@/components/collection/CollectionCard.vue';
+  import CollectionCard from '@/views/home/collection/CollectionCard.vue';
   import CollectionDesc from './CollectionDesc.vue';
   import NavTabLayout from '@/layouts/nav-tab-layout/index.vue';
 
