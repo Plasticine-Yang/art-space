@@ -2,8 +2,8 @@
   import { getCollectionList } from '@/api';
   import { ICollection } from '@/model/collection';
 
-  import { List, PullRefresh } from 'vant';
-  import { ref } from 'vue';
+  import { List, PullRefresh, Empty } from 'vant';
+  import { onMounted, ref } from 'vue';
   import CollectionCard from './CollectionCard.vue';
 
   // data
@@ -35,7 +35,6 @@
       currentPage: currentPage.value,
       pageSize: pageSize.value,
     }).then(({ collectionList: collectionListRes }) => {
-      collectionList.value = [];
       collectionList.value = collectionListRes;
 
       // 刷新状态完成
@@ -64,6 +63,16 @@
       listFinished.value = true;
     }
   };
+
+  onMounted(() => {
+    // mounted 的时候加载第一页数据
+    getCollectionList({
+      currentPage: currentPage.value,
+      pageSize: pageSize.value,
+    }).then(({ collectionList: collectionListRes }) => {
+      collectionList.value = collectionListRes;
+    });
+  });
 </script>
 
 <template>
@@ -73,7 +82,14 @@
     success-text="刷新成功！"
     @refresh="onRefresh"
   >
-    <List v-model:loading="listLoading" :finished="listFinished" @load="onLoad">
+    <!-- 没有数据时用空状态 -->
+    <Empty v-if="collectionList.length === 0" description="暂无数据" />
+    <List
+      v-else
+      v-model:loading="listLoading"
+      :finished="listFinished"
+      @load="onLoad"
+    >
       <router-link
         v-for="item in collectionList"
         :key="item.id"
