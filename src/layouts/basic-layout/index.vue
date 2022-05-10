@@ -14,9 +14,9 @@
     </main>
     <!-- 底部导航栏 Tabbar -->
     <Tabbar v-model="activeBar" :border="false">
-      <TabbarItem name="home" icon="debit-pay">首页</TabbarItem>
-      <TabbarItem name="market" icon="shop-o">市场</TabbarItem>
-      <TabbarItem name="my" icon="contact">我的</TabbarItem>
+      <TabbarItem name="home" icon="debit-pay" to="/home">首页</TabbarItem>
+      <TabbarItem name="market" icon="shop-o" to="/market">市场</TabbarItem>
+      <TabbarItem name="my" icon="contact" to="/my">我的</TabbarItem>
     </Tabbar>
   </div>
 </template>
