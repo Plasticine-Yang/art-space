@@ -10,13 +10,13 @@ export const authRoutes = <RouteRecordRaw[]>[
   },
   // 注册路由
   {
-    path: '/register',
+    path: PageRoutes.REGISTER,
     name: 'Register',
     component: () => import('@/views/auth/register/index.vue'),
   },
   // 找回密码路由
   {
-    path: '/retrieve-password',
+    path: PageRoutes.RETRIEVE_PASSWORD,
     name: 'RetrievePassword',
     component: () => import('@/views/auth/retrieve-password/index.vue'),
   },
