@@ -33,3 +33,12 @@ export interface IRegisterData {
   passWord: string;
   varifyCode: string;
 }
+
+/**
+ * @description 找回密码参数
+ */
+export interface IRetrievePasswordData {
+  email: string;
+  varifyCode: string;
+  passWord: string;
+}

@@ -3,7 +3,12 @@
  */
 import { get, post } from '@/utils/http';
 import { AuthAPI } from '@/enums/api';
-import { ILoginData, ILoginResponse, IRegisterData } from './types';
+import {
+  ILoginData,
+  ILoginResponse,
+  IRegisterData,
+  IRetrievePasswordData,
+} from './types';
 
 /**
  * @description 登录
@@ -22,6 +27,13 @@ export async function login(data: ILoginData) {
  */
 export function register(data: IRegisterData) {
   return post(AuthAPI.REGISTER, data);
+}
+
+/**
+ * @description 找回密码
+ */
+export function retrievePassword(data: IRetrievePasswordData) {
+  return post(AuthAPI.RETRIEVE_PASSWORD, data);
 }
 
 /**

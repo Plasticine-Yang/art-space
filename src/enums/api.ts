@@ -13,6 +13,7 @@ export enum CollectionAPI {
 export enum AuthAPI {
   LOGIN = '/user/login',
   REGISTER = '/user/reg',
+  RETRIEVE_PASSWORD = '/user/retrievePassword',
   SEND_VARIFYCODE = '/user/sendRegMail/{email}',
 }
 
