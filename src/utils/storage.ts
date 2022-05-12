@@ -27,8 +27,8 @@ export class StorageUtils {
     if (!data.permanent) {
       // 不是永久时需要判断是否过期
       if (Date.now() >= data.time + data.expire!) {
-        // 过期 -- 返回 defaultVal
-        console.log(Date.now(), data.time, data.expire);
+        // 过期 -- 删除后返回 defaultVal
+        StorageUtils.remove(key);
 
         return defaultVal;
       } else {
