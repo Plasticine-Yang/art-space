@@ -7,7 +7,7 @@ import { IUserInfo } from '@/model/user';
 import { router } from '@/router';
 import { StorageUtils } from '@/utils/storage';
 import { defineStore } from 'pinia';
-import { Notify, Toast } from 'vant';
+import { Toast } from 'vant';
 import { pinia } from '..';
 
 interface UserState {
@@ -107,7 +107,7 @@ export const useUserStore = defineStore({
       if (!this.getToken) return null;
 
       // 获取用户信息
-      this.getUserInfoAction();
+      await this.getUserInfoAction();
 
       // 判断是否跳转首页
       if (goHome) {
@@ -115,12 +115,6 @@ export const useUserStore = defineStore({
 
         // 关闭 Toast 加载提示
         Toast.success('登录成功');
-
-        // Notify 弹出欢迎提示
-        Notify({
-          type: 'success',
-          message: `欢迎您${'：' + this.userInfo?.username}！`,
-        });
       }
     },
     /**

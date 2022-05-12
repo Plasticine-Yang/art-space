@@ -1,7 +1,20 @@
 <script setup lang="ts">
+  import { Notify } from 'vant';
   import Swipe from './Swipe.vue';
   import Tabs from './Tabs.vue';
   import LogoTitle from '@/components/LogoTitle.vue';
+  import { onMounted } from 'vue';
+  import { useUserStore } from '@/store/modules/user';
+
+  const userStore = useUserStore();
+
+  onMounted(() => {
+    // Notify 弹出欢迎提示
+    Notify({
+      type: 'success',
+      message: `欢迎您${'：' + userStore.getUserInfo?.username}！`,
+    });
+  });
 </script>
 
 <template>
