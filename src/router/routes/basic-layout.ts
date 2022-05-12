@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 import { homeRoute } from './modules/home';
+import { marketRoutes } from './modules/market';
 import { myRoute } from './modules/my';
 
 /**
@@ -10,5 +11,5 @@ export const basicLayoutRoute: RouteRecordRaw = {
   name: 'BasicLayout',
   redirect: '/home',
   component: () => import('@/layouts/basic-layout/index.vue'),
-  children: [homeRoute, myRoute],
+  children: [homeRoute, myRoute, marketRoutes],
 };
