@@ -49,6 +49,7 @@
         v-model="username"
         name="用户名"
         label="用户名"
+        autocomplete="username"
         placeholder="请输入邮箱或手机号"
         :rules="[
           {
@@ -62,6 +63,7 @@
         v-model="password"
         name="密码"
         label="密码"
+        autocomplete="current-password"
         placeholder="请输入密码"
         :type="showPassword ? 'text' : 'password'"
         :rules="[{ required: true, message: '请输入密码' }]"
