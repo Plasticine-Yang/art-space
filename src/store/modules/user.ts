@@ -93,7 +93,7 @@ export const useUserStore = defineStore({
 
       // 请求登录接口获取 token
       const { tokenValue, tokenActivityTimeout } = await login(loginData);
-      this.setTokenExpire(tokenActivityTimeout);
+      this.setTokenExpire(tokenActivityTimeout * 1000); // 接口返回的有效期是以秒为单位的 --> 转成毫秒
       this.setToken(tokenValue);
 
       // 将登录逻辑转移到 afgerLoginAction 中处理
