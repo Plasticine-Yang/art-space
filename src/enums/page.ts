@@ -3,4 +3,5 @@ export enum PageRoutes {
   HOME = '/home',
   MARKET = '/market',
   MY = '/my',
+  SETTINGS = '/settings',
 }
