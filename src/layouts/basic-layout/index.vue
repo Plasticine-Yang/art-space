@@ -30,7 +30,11 @@
   <div class="h-full w-full">
     <!-- 主体内容区域 -->
     <main>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </main>
     <!-- 底部导航栏 Tabbar -->
     <Tabbar v-model="activeBar" :border="false">
