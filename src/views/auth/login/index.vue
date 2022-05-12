@@ -2,6 +2,7 @@
   import LogoTitle from '@/components/LogoTitle.vue';
   import Card from '@/components/Card.vue';
   import LoginForm from './LoginForm.vue';
+  import { PageRoutes } from '@/enums/page';
 </script>
 
 <template>
@@ -15,6 +16,15 @@
       <!-- 登录表单 -->
       <template #main>
         <LoginForm />
+      </template>
+      <!-- 注册、忘记密码 -->
+      <template #footer>
+        <div class="flex justify-between">
+          <router-link :to="PageRoutes.REGISTER">立即注册</router-link>
+          <router-link :to="PageRoutes.RETRIEVE_PASSWORD"
+            >忘记密码？</router-link
+          >
+        </div>
       </template>
     </Card>
   </div>
