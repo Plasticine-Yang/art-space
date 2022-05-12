@@ -12,6 +12,8 @@ export enum CollectionAPI {
  */
 export enum AuthAPI {
   LOGIN = '/user/login',
+  REGISTER = '/user/reg',
+  SEND_VARIFYCODE = '/user/sendRegMail/{email}',
 }
 
 /**

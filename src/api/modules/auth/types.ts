@@ -21,3 +21,15 @@ export interface ILoginResponse {
   tokenTimeout: number;
   tokenValue: string;
 }
+
+/**
+ * @description 注册参数
+ */
+export interface IRegisterData {
+  email: string;
+  userName: string;
+  inviteUser?: string;
+  phone: string;
+  passWord: string;
+  varifyCode: string;
+}
