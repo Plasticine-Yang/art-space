@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 
 import { configStyleImportPlugin } from './styleImport';
 import { configHtmlPlugin } from './html';
+import { configMarkdownPlugin } from './markdown';
 
 export function createVitePlugins(env: ImportMetaEnv) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [vue()];
@@ -13,6 +14,9 @@ export function createVitePlugins(env: ImportMetaEnv) {
 
   // vite-plugin-html
   vitePlugins.push(configHtmlPlugin(env));
+
+  // vite-plugin-markdown
+  vitePlugins.push(configMarkdownPlugin());
 
   return vitePlugins;
 }

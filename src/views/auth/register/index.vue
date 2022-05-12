@@ -152,6 +152,7 @@
         <Field
           v-model="passWord"
           label="密码"
+          autocomplete="password"
           placeholder="请输入密码"
           type="password"
           :rules="[{ required: true, message: '请填写密码' }]"
@@ -159,6 +160,7 @@
         <Field
           v-model="confirmPassword"
           label="确认密码"
+          autocomplete="username"
           placeholder="再次输入密码"
           type="password"
           :rules="[

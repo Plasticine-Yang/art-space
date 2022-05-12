@@ -2,9 +2,9 @@ import { useEnv } from '@build/utils';
 import axios, { AxiosError } from 'axios';
 import type { AxiosRequestConfig } from 'axios';
 import { AxiosOptions, IResponse } from '#/axios';
-import { useLocalStorage } from '@vueuse/core';
 import { StorageKey } from '@/enums/storageKey';
 import { Notify } from 'vant';
+import { StorageUtils } from './storage';
 
 const { VITE_API_BASE_URL } = useEnv(import.meta.env);
 
@@ -49,10 +49,12 @@ export async function request<T = any>(
 ) {
   if (options?.withToken) {
     // 携带 token 发送请求
-    const token = useLocalStorage(StorageKey.TOKEN_KEY, '');
-    config.headers = {
-      'com.zero.shop': token.value,
-    };
+    const token = StorageUtils.get(StorageKey.TOKEN_KEY, '');
+    if (token) {
+      config.headers = {
+        'com.zero.shop': token,
+      };
+    }
   }
 
   const res = await axiosInstance.request<IResponse<T>>(config);
