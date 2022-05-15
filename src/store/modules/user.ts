@@ -1,9 +1,9 @@
 import { login } from '@/api/modules/auth';
 import { ILoginData } from '@/api/modules/auth/types';
-import { getUserInfo } from '@/api/modules/user';
+import { getUserInfo, getUserWallet } from '@/api/modules/user';
 import { PageRoutes } from '@/enums/page';
 import { StorageKey } from '@/enums/storageKey';
-import { IUserInfo } from '@/model/user';
+import { IUserInfo, IUserWallet } from '@/model/user';
 import { router } from '@/router';
 import { StorageUtils } from '@/utils/storage';
 import { defineStore } from 'pinia';
@@ -13,6 +13,8 @@ import { pinia } from '..';
 interface UserState {
   // 用户信息
   userInfo: IUserInfo | null;
+  // 用户钱包信息
+  walletInfo: IUserWallet | undefined;
   // token
   token?: string;
   // token 有效时间 -- 单位：秒
@@ -26,6 +28,7 @@ export const useUserStore = defineStore({
   id: 'user',
   state: (): UserState => ({
     userInfo: null,
+    walletInfo: undefined,
     token: undefined,
     tokenExpire: 0,
   }),
@@ -40,6 +43,9 @@ export const useUserStore = defineStore({
       return (
         this.userInfo ?? StorageUtils.get<IUserInfo>(StorageKey.USER_INFO_KEY)
       );
+    },
+    getWalletInfo(): IUserWallet | undefined {
+      return this.walletInfo;
     },
   },
   actions: {
@@ -66,6 +72,13 @@ export const useUserStore = defineStore({
     setUserInfo(userInfo: IUserInfo) {
       this.userInfo = userInfo;
       StorageUtils.set(StorageKey.USER_INFO_KEY, userInfo, this.getTokenExpire);
+    },
+    /**
+     * @description 存储用户钱包信息
+     * @param walletInfo 钱包信息
+     */
+    setWalletInfo(walletInfo: IUserWallet) {
+      this.walletInfo = walletInfo;
     },
     /**
      * @description 重置 state
@@ -109,6 +122,9 @@ export const useUserStore = defineStore({
       // 获取用户信息
       await this.getUserInfoAction();
 
+      // 获取钱包信息
+      await this.getUserWalletInfoAction();
+
       // 判断是否跳转首页
       if (goHome) {
         router.replace(PageRoutes.HOME);
@@ -118,11 +134,18 @@ export const useUserStore = defineStore({
       }
     },
     /**
-     * @description 获取用户信息
+     * @description 发起请求获取用户信息
      */
     async getUserInfoAction() {
       const userInfo = await getUserInfo();
       this.setUserInfo(userInfo);
+    },
+    /**
+     * @description 发起请求获取用户钱包信息
+     */
+    async getUserWalletInfoAction() {
+      const walletInfo = await getUserWallet();
+      this.setWalletInfo(walletInfo);
     },
     /**
      * @description 登出

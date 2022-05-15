@@ -22,4 +22,5 @@ export enum AuthAPI {
  */
 export enum UserAPI {
   USER_INFO = '/user/info',
+  USER_WALLET = '/shop/user/wallet/getWallet',
 }

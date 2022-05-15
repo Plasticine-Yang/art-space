@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  import { IUserInfo } from '@/model/user';
+  import { IUserInfo, IUserWallet } from '@/model/user';
 
   defineProps<{
     userInfo: IUserInfo;
+    userWalletInfo: IUserWallet;
   }>();
 </script>
 
@@ -21,7 +22,7 @@
       <!-- 用户名 -->
       <h1>{{ userInfo?.username }}</h1>
       <!-- 积分 -->
-      <p class="mt-4">积分：10分</p>
+      <p class="mt-4">积分：{{ userWalletInfo.accumulate }}分</p>
     </van-col>
   </van-row>
 </template>

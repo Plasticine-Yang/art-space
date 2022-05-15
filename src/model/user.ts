@@ -19,3 +19,17 @@ export interface IUserInfo {
   imageUrl: string;
   trueName: string;
 }
+
+/**
+ * @description 用户钱包
+ */
+export interface IUserWallet {
+  // 钱包 id
+  id: number;
+  // 用户 id
+  userId: number;
+  // 钱包余额
+  money: number;
+  // 积分
+  accumulate: number;
+}
