@@ -10,9 +10,11 @@
 
   onMounted(() => {
     // Notify 弹出欢迎提示
+    let username = userStore.getUserInfo?.username ?? '游客';
+
     Notify({
       type: 'success',
-      message: `欢迎您${'：' + userStore.getUserInfo?.username}！`,
+      message: `欢迎您：${username}！`,
     });
   });
 </script>
