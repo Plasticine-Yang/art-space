@@ -72,5 +72,13 @@ export const useThemeVars = () => {
     checkboxCheckedIconColor: primaryDarkColor,
     // Radio checked 颜色
     radioCheckedIconColor: primaryDarkColor,
+    // Dropdown 背景颜色
+    dropdownMenuBackgroundColor: mainBgColor,
+    // 关闭 Dropdown 的阴影
+    dropdownMenuBoxShadow: 'none',
+    // Dropdown 文本颜色
+    dropdownMenuTitleTextColor: mainTextColor,
+    // GridItem 背景颜色
+    gridItemContentBackgroundColor: mainBgColor,
   };
 };
