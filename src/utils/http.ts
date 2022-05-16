@@ -95,7 +95,7 @@ export function get<T = any>(
  */
 export function post<T = any>(
   url: string,
-  data: any,
+  data?: any,
   options?: Partial<AxiosOptions>,
 ) {
   return request<T>({ url, method: 'POST', data }, options);

@@ -33,3 +33,17 @@ export interface IUserWallet {
   // 积分
   accumulate: number;
 }
+
+/**
+ * @description 用户藏品
+ */
+export interface IUserCollection {
+  // 藏品编号
+  shopCode: string;
+  // 藏品名字
+  ShopName: string;
+  // 当前页
+  currentPage: number;
+  // 总页数
+  pageSize: number;
+}
